@@ -1,0 +1,89 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Agenda Escolar y Chat de Bienestar</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="page-header">
+    <h1>Agenda Escolar para Jóvenes</h1>
+    <p>Organiza asignaturas y usa el chat de apoyo cuando te sientas estresado/a.</p>
+  </header>
+  <main class="layout">
+    <section class="panel">
+      <h2>Perfil del estudiante</h2>
+      <form id="profile-form" class="profile-form">
+        <label for="course">Curso</label>
+        <select id="course" name="course" required>
+          <option value="">Selecciona un curso</option>
+          <option value="1A">1° A</option>
+          <option value="1B">1° B</option>
+          <option value="2A">2° A</option>
+          <option value="2B">2° B</option>
+          <option value="3A">3° A</option>
+          <option value="3B">3° B</option>
+          <option value="4A">4° A</option>
+          <option value="4B">4° B</option>
+          <option value="otro">Otro</option>
+        </select>
+        <label for="student-name">Nombre del estudiante</label>
+        <input id="student-name" name="student-name" type="text" placeholder="Ej. Camila Rojas" required>
+        <button id="save-profile" type="submit">Entrar con este perfil</button>
+      </form>
+      <p id="profile-status" class="status" aria-live="polite"></p>
+      <p id="active-profile" class="active-profile"></p>
+      <p class="network-tip">Para abrirlo en otras computadoras del colegio, ejecuta el script <strong>iniciar-red.ps1</strong> en la carpeta del proyecto.</p>
+      <hr class="divider">
+      <h2>Calendario semanal de asignaturas</h2>
+      <form id="subject-form" class="subject-form">
+        <label for="subject">Asignatura</label>
+        <input id="subject" name="subject" type="text" placeholder="Ej. Matemáticas" required>
+        <label for="day">Día</label>
+        <select id="day" name="day" required>
+          <option value="">Selecciona un día</option>
+          <option value="lunes">Lunes</option>
+          <option value="martes">Martes</option>
+          <option value="miercoles">Miércoles</option>
+          <option value="jueves">Jueves</option>
+          <option value="viernes">Viernes</option>
+          <option value="sabado">Sábado</option>
+          <option value="domingo">Domingo</option>
+        </select>
+        <div class="time-row">
+          <div>
+            <label for="start">Hora de inicio</label>
+            <input id="start" name="start" type="time" required>
+          </div>
+          <div>
+            <label for="end">Hora de fin</label>
+            <input id="end" name="end" type="time" required>
+          </div>
+        </div>
+        <label for="teacher">Docente o aula (opcional)</label>
+        <input id="teacher" name="teacher" type="text" placeholder="Ej. Profe Ana / Aula 4">
+        <label for="notes">Notas (opcional)</label>
+        <textarea id="notes" name="notes" rows="2" placeholder="Ej. Llevar cuaderno y calculadora"></textarea>
+        <div class="form-actions">
+          <button id="submit-subject" type="submit">Guardar asignatura</button>
+          <button id="cancel-edit" type="button" class="secondary hidden">Cancelar edición</button>
+        </div>
+      </form>
+      <p id="form-status" class="status" aria-live="polite"></p>
+      <div id="calendar-grid" class="calendar-grid"></div>
+    </section>
+    <section class="panel">
+      <h2>Chatbot de bienestar</h2>
+      <p class="chat-description">Este chat es de apoyo emocional básico. Si te sientes en riesgo, avisa de inmediato a una persona adulta de confianza u orientación escolar.</p>
+      <div id="chat-log" class="chat-log" aria-live="polite" aria-label="Conversación con el chatbot"></div>
+      <div id="chat-options" class="chat-options" aria-label="Opciones de respuesta"></div>
+      <button id="restart-chat" class="secondary" type="button">Reiniciar conversación</button>
+    </section>
+  </main>
+  <footer class="page-footer">
+    <small>Los datos se guardan en este navegador para uso local del colegio.</small>
+  </footer>
+  <script src="app.js"></script>
+</body>
+</html>
